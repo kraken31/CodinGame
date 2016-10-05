@@ -11,11 +11,9 @@ graphe = {}
 passerelles = []
 
 n, l, e = [int(i) for i in input().split()]
-print ("n="+ str(n) + " l=" + str(l) + " e=" + str(e), file=sys.stderr)
 for i in range(l):
     # n1: N1 and N2 defines a link between these nodes
     n1, n2 = [int(j) for j in input().split()]
-    print ("n1="+ str(n1) + " n2=" + str(n2), file=sys.stderr)
     if n1 in graphe.keys():
         graphe[n1].append(n2)
     else:
@@ -26,18 +24,13 @@ for i in range(l):
     else:
         graphe[n2] = [n1]
     
-print ("graphe="+ str(graphe), file=sys.stderr)
-
 for i in range(e):
     ei = int(input())  # the index of a gateway node
     passerelles.append(ei)
 
-print ("passerelles="+ str(passerelles), file=sys.stderr)
-
 # game loop
 while True:
     si = int(input())  # The index of the node on which the Skynet agent is positioned this turn
-    print ("si="+ str(si), file=sys.stderr)
     
     # Parcours du graphe en prenant pour sommet l'emplacement de si
     # On crée une liste des noeuds rencontrés, dès qu'une passerelle est trouvée on coupe l'accès
